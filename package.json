@@ -1,0 +1,25 @@
+{
+  "name": "202603-pw-js-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nganhan2016-glitch/PW_TS_052026.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nganhan2016-glitch/PW_TS_052026/issues"
+  },
+  "homepage": "https://github.com/nganhan2016-glitch/PW_TS_052026#readme",
+  "devDependencies": {
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3"
+  }
+}
