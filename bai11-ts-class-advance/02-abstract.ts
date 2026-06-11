@@ -266,3 +266,54 @@ async function runTest() {
 }
 
 runTest();
+//=================
+//
+//lý do 1: Interface - có thể tái sử dụng mà ko cần extends
+//Nếu 2 class thuộc 2 hệ khác nhau thì ta nên dùng interface để đáp ứng sự tái sử dụng
+class ApiHealthCheck implements Verifibable {
+  verify(): boolean {
+    return true;
+  }
+}
+
+//lý do 2: Interface cho phép 1 class có nhiều vai trò
+class CheckoutTest extends BaseTest implements Runnable, Verifibable {
+  
+}
+
+//ly do 3: iinterface giup cho viec mock testing
+//regular class ko thể làm cha tốt nếu 1 tỏng các trường hợp
+class BasePage7 {
+  baseUrl = "abc.com";
+  constructor(protected path: string) {}
+  navigate(): void {}
+
+  //abstract isLoaded()
+}
+
+class LoginPage8 extends BasePage7 {
+  isLoaded(): boolean {
+    return true;
+  }
+}
+
+class CartPage extends BasePage7 {
+  addToCart(): void {}
+}
+
+///regular class làm cha khi cha đã hoàn chỉnh 100%. tự dùng đc 1 mình, và con chỉ thêm các tính năng chứ ko cần override
+///regular class làm cha khi cha đã hoàn chỉnh 100%. tự dùng đc 1 mình, và con chỉ thêm các tính năng chứ ko cần override
+class HttpClient {
+  constructor(protected baseUrl: string) {}
+
+  async get<T>(path: string): Promise<T> {
+    return {} as T;
+  }
+}
+
+class AuthHttpClient extends HttpClient {
+  constructor(baseUrl:string, private token:string){
+    super(baseUrl)
+  }
+  //thêm method mới - cha k 
+}
